@@ -1,5 +1,5 @@
 <?php
-    $this->Flash->render();
+    echo $this->Flash->render();
     foreach($details as $detail){
         echo '
             <div class="card">

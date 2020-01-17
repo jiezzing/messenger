@@ -82,11 +82,11 @@
                         $this->User->id = $this->Auth->user('id');
                         $data = $this->User->saveField('image', $filename);
 
-                        $this->Flash->success('Upload file successful');
                         $this->redirect(array(
                             'controller' => 'users',
                             'action' => 'profile', $this->Auth->user('id')
                         ));
+                        $this->Flash->success('Upload file successful');
                     }
                     else{
                         $this->Flash->error('Unable to upload file, please try again.');
@@ -107,7 +107,10 @@
                     
                 }else{
                     $this->Flash->error('Please choose a file to upload.');
-                    return $this->redirect('../users/edit/ ' . $this->Auth->user('id'));;
+                    $this->redirect(array(
+                        'controller' => 'users',
+                        'action' => 'edit', $this->Auth->user('id')
+                    ));
                 }
                 
             }
