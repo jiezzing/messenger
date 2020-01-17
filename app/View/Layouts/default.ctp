@@ -30,7 +30,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		echo $this->Html->css(array(
 			'cake.generic.css',
-			'custom.css'
+			'custom.css',
+			'card.css'
 		));
 
 		echo $scripts_for_layout;
@@ -43,7 +44,28 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
+			
+			<h1>
+				<?php 
+					if(AuthComponent::user()){
+						echo '<h1> Welcome ' . AuthComponent::user('name') . '!</h1>';
+						echo $this->Html->link('Home / Dashboard', array(
+							'controller' => 'messages',
+							'action' => 'index'
+						));
+						echo '<br><br>';
+						echo $this->Html->link('Profile', array(
+							'controller' => 'users',
+							'action' => 'profile', AuthComponent::user('id')
+						));
+						echo '<br><br>';
+						echo $this->Html->link('Logout', array(
+							'controller' => 'users',
+							'action' => 'logout'
+						));
+					} 
+				?>
+			</h1>
 		</div>
 		<div id="content">
 

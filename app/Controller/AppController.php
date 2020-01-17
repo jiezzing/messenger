@@ -35,7 +35,22 @@ class AppController extends Controller {
     public $components = array(
         'DebugKit.Toolbar',
         'Session',
-        'RequestHandler'
+        'Flash',
+        'RequestHandler',
+        'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'messages',
+                'action' => 'index'
+            ),
+            'authenticate' => array(
+                'Form' => array(
+                    'fields' => array(
+                        'username' => 'email',
+                        'password' => 'password'
+                    )
+                )
+            )
+        )
     );
 
 }

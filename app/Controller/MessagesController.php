@@ -1,7 +1,6 @@
 <?php
 
     App::uses('User', 'Model');
-    App::uses('Message', 'Model');
 
     class MessagesController extends AppController {
 

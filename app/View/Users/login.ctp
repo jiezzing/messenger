@@ -1,6 +1,7 @@
 <h2>Login</h2>
 <?php
-    echo $this->Form->create('User', array('url' => 'login'));
+    echo $this->Flash->render('auth');
+    echo $this->Form->create('User');
     echo $this->Form->input('email');
     echo $this->Form->input('password');
     echo $this->Form->end('Login');

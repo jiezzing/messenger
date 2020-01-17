@@ -1,4 +1,4 @@
-<h2>Conversations</h2>
+<h2>Message List</h2>
 <?php
 
     echo $this->Form->create('Message');
@@ -13,8 +13,7 @@
                         'class' => 'right'
                     )).'
                     <p class="float-right">'.$message['Message']['content'].'</p>
-                    <span class="time-right">'.$message['Message']['created'].' - 
-                    '.$this->Form->postLink('Delete').'</span>
+                    <span class="time-right">'.$message['Message']['created'].' - (you)</span>
                 </div>
             ';
         }

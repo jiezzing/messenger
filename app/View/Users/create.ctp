@@ -7,6 +7,6 @@
     echo $this->Form->input('password');
     echo $this->Form->input('confirm Password', array('type' => 'password'));
     echo $this->Form->end('Create account');
-    echo $this->Form->postLink('Go back to LOGIN', array('action' => 'index'));
+    echo $this->Form->postLink('Go back to LOGIN', array('action' => 'login'));
 
 ?>
